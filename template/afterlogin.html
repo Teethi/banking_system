@@ -37,8 +37,8 @@
   <div class="container">
     <h2>Welcome to the Banking System</h2>
     <div class="user-info">
-      <p>User ID: <span id="user-id">12345</span></p>
-      <p>Username: <span id="username">JohnDoe</span></p>
+      <p>User ID: <span id="user-id"> {{user.user_id}} </span></p>
+      <p>Username: <span id="username">{{user.username}} 12345</span></p>
       <p>Account Balance: $<span id="account-balance">1000.00</span></p>
       <form action="/logout" method="post">
         {% csrf_token %}

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
-from .models import Users as banking_user
+from .models import BankUser as banking_user
 from django.contrib import messages
 
 # Create your views here.
@@ -59,6 +59,7 @@ def login(request):
     user=auth.authenticate(username=username,password=password)
     if user is not None:
         auth.login(request,user)
+
         return render(request, 'afterlogin.html')
     else:
         messages.info(request,'Invalid credentials')
@@ -67,5 +68,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/#')
+
+
     
 

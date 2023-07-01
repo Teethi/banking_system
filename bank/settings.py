@@ -80,10 +80,13 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':  'banking',
+        'NAME':  'banking_new',
         'USER': 'admin',
         'PASSWORD': 'Sonuaws1&&',
-        'HOST':'database-teethi.ce3v5gwcmm1a.ap-southeast-2.rds.amazonaws.com'
+        'HOST':'database-teethi.ce3v5gwcmm1a.ap-southeast-2.rds.amazonaws.com',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
+        }
 
     }
 }
