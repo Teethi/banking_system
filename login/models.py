@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class Users(models.Model):
+    user_id=models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -21,12 +22,3 @@ class User(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-class Account(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    account_number = models.CharField(max_length=100)
-    balance = models.FloatField()
-
-    def __str__(self):
-        return f"{self.account_number} {self.balance}"
-    
