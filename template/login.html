@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 150px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container h2 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .container form input[type="text"],
+    .container form input[type="password"],
+    .container form input[type="email"],
+    .container form input[type="tel"],
+    .container form input[type="date"],
+    .container form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    .container form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .container form p {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .container form p a {
+      text-decoration: none;
+      color: #4caf50;
+      cursor: pointer;
+    }
+    
+    .registration-form {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleForm() {
+      var loginForm = document.getElementById("login-form");
+      var registrationForm = document.getElementById("registration-form");
+      var toggleLink = document.getElementById("toggle-link");
+      
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registrationForm.style.display = "none";
+        toggleLink.innerText = "New user? Register here";
+      } else {
+        loginForm.style.display = "none";
+        registrationForm.style.display = "block";
+        toggleLink.innerText = "Already registered? Login here";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form" action="/login" method="post">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Login">
+      <p onclick="toggleForm()" id="toggle-link">New user? Register here</p>
+    </form>
+    
+    <form id="registration-form" class="registration-form" action="/register" method="post">
+      {% csrf_token %}
+      <input type="text" name="first_name" placeholder="First Name" required>
+      <input type="text" name="last_name" placeholder="Last Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone_number" placeholder="Phone Number" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <input type="date" name="date_of_birth" required>
+      <select name="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+        </select>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        
+      
+        <input type="password"  name="confirm_password" placeholder="Confirm your password" required>
+      
+        <!-- <input type="text" name="security_question" placeholder="Security Question" required>
+        <input type="text" name="security_answer" placeholder="Security Answer" required> -->
+        <input type="submit" value="Register">
+        <p onclick="toggleForm()" id="toggle-link">Already registered? Login here</p>
+        </form>
+        
+          </div>
+        </body>
+        </html>

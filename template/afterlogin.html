@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banking System - Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      margin-top: 150px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .container h2 {
+      color: #333;
+    }
+    
+    .user-info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+    
+    .user-info p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to the Banking System</h2>
+    <div class="user-info">
+      <p>User ID: <span id="user-id">12345</span></p>
+      <p>Username: <span id="username">JohnDoe</span></p>
+      <p>Account Balance: $<span id="account-balance">1000.00</span></p>
+      <form action="/logout" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
